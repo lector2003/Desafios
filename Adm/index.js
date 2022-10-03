@@ -90,8 +90,3 @@ class Admi {
   }
 }
 
-const adm1 = new Admi(ruta)
-
-
-
-adm1.detelledById(2)
