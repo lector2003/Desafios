@@ -3,90 +3,57 @@ const path = require("path");
 const ruta = "productos.json";
 const array = JSON.stringify([]);
 
+const express = require("express");
 
-class Admi {
-  constructor(nameArc) {
-    if(!fs.existsSync(ruta)){
-      fs.writeFileSync(ruta, array)
-    }else{
-      this.nameArc = ruta;
-    }
+const app = express();
+
+const getAll = () => {
+  try {
+    const data = fs.readFileSync(`./${ruta}`, "utf-8");
+    const dataParse = JSON.parse(data);
+    return dataParse;
+  } catch (error) {
+    console.log(null);
   }
+};
 
-  getAll() {
-    try {
-      const data = fs.readFileSync(ruta, "utf-8");
-      const dataParse = JSON.parse(data);
-      console.log(dataParse);
-      return dataParse;
-    } catch (error) {
-      console.log(null);
-    }
-  }
+const productos = getAll();
 
-  async save(obj) {
-    try {
-      const data = await fs.promises.readFile(this.nameArc, "utf-8");
-      const dataPar = JSON.parse(data);
-      if (dataPar.length) {
-        const newProduct = {
-          title: obj.title,
-          price: obj.price,
-          id: dataPar[dataPar.length - 1].id + 1,
-        };
-        dataPar.push(newProduct);
-        const dataStri = JSON.stringify(dataPar, null, "\t")
-        await fs.promises.writeFile(this.nameArc, dataStri);
-        console.log("se ejecuta");
-      } else {
-        const newProduct = {
-          title: obj.title,
-          price: obj.price,
-          id: 1,
-        };
-        dataPar.push(newProduct);
-        const dataStri = JSON.stringify(dataPar, null, "\t")
-        await fs.promises.writeFile(this.nameArc,dataStri);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
- async getById(id){
-  const data = await fs.promises.readFile(this.nameArc, "utf-8");
-      const dataPar = JSON.parse(data);
+app.get("/productos", (req, res) => {
+  
+  res.send({ productos });
+});
 
-      const ind = dataPar.findIndex((prod)=>prod.id === id)
+
+
+
+app.get("/productoRamdon", (req, res) => {
+  const getById = (id)=>{
+      const ind = productos.findIndex((prod)=>prod.id === id)
 
       if(ind<0){
         throw new Error("El producto no existe")
       }
-      console.log(dataPar[ind])
+      return productos[ind]
+
+
+   
   }
-
-  async detelledAll(){
-
-    await fs.promises.writeFile(this.nameArc, array)
-  }
-
-  async detelledById(id){
-
-    try {
-      const data = await fs.promises.readFile(this.nameArc, "utf-8");
-      const dataPar = JSON.parse(data);
-      const ind = dataPar.findIndex((prod)=>prod.id === id)
-
-      if(ind < 0){
-        return
-      }else{
-        dataPar.splice(ind, 1)
-        const dataCheck = JSON.stringify(dataPar, null, "\t")
-        await fs.promises.writeFile(this.nameArc,dataCheck)
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  const random = (min, max) => {
+    return Math.floor((Math.random() * (max - min + 1)) + min);
 }
 
+  const productRamdon = getById(random(1,productos.length))
+
+  res.send({productRamdon})
+
+});
+
+const PORT = 8081;
+
+const server = app.listen(PORT, () => {
+  console.log(`servidor escuchando ${server.address().port}`);
+});
+
+server.on("error", (error) => console.log(`error en servidor ${error}`));
