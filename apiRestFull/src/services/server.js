@@ -1,0 +1,16 @@
+const { urlencoded } = require("express")
+const express = require("express")
+const mainRouter = require('../routes/index')
+
+
+const app = express()
+
+app.use(express.json())
+app.use(urlencoded({extended:true}))
+app.use("/api", mainRouter)
+
+app.use(express.static('public'))
+
+
+
+module.exports = app
