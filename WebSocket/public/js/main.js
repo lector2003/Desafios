@@ -1,20 +1,24 @@
 //manipulacion del doom
-const title = document.getElementById("title").value
-const price = document.getElementById("price").value
-const url = document.getElementById("thumbail").value
+
 
 //creacion del producto
-const data = {
-    title: title,
-    price:price,
-    thumbail: url
-}
+
 
 const socket = io()
 
 //envio del emit
 
-        socket.emit("dataProduct", data)
+    const addMenssage = (e)=>{
+      
+        const data = {
+            title: document.getElementById("title").value,
+            price:document.getElementById("price").value,
+            thumbail:document.getElementById("thumbail").value
+        }
+
+        socket.emit("data", data)
+        return false
+    }
     
 
 
