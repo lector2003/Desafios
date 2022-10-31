@@ -15,5 +15,7 @@ const ruta = path.resolve(__dirname, "../../productos.json")
 
 
 
+
+
 module.exports = rutaProductos
 

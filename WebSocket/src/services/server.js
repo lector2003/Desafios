@@ -5,7 +5,6 @@ const htpp = require("http")
 const {initWs}= require("./socket")
 const path = require("path")
 const mainRouter = require("../rutas/index")
-const { rmSync } = require("fs")
 
 
 //configuracion basica
@@ -22,10 +21,7 @@ const rutaPublic = path.resolve(__dirname, "../../public")
 app.use(express.static("public"))
 app.use("/api", mainRouter)
 
-// renderizar vista index.ejs
-mainRouter.get("/inicio", (req, res)=>{
-    res.render("index")
-})
+
 
 //configuracion ejs
 const rutaViews = path.resolve(__dirname, "../../views")
