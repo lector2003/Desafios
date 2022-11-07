@@ -8,5 +8,25 @@
 		"timestamp": "November 6th 2022, 11:41:32 pm",
 		"id": "11332d46-6384-4319-8090-0bb2ac5de7c3",
 		"code": "0ca4d02b-7518-4965-9edc-6d47b74add47"
+	},
+	{
+		"name": "Barra olimpica",
+		"description": "Barra de 20kg",
+		"image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hhbusca.com%2Fproductos%2Fbarra-olimpica-2-20-mts%2F&psig=AOvVaw3qkfRGWnoCbUYV9GdWaips&ust=1667879074463000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCNjQ5e-Tm_sCFQAAAAAdAAAAABAE",
+		"stock": "3",
+		"price": "5000",
+		"timestamp": "November 7th 2022, 12:45:35 am",
+		"id": "9433011f-5fbb-4694-87f7-1acefe112aee",
+		"code": "93004367-150f-4393-a941-adffc5c89ff6"
+	},
+	{
+		"name": "Prensa 45Grados",
+		"description": "Prensa soporta hasta 500kg",
+		"image": "https://www.google.com/imgres?imgurl=https%3A%2F%2Ftienda.gfitness.com.ar%2Fweb%2Fimage%2Fproduct.template%2F1800%2Fimage_1024%3Funique%3D993cd7c&imgrefurl=https%3A%2F%2Ftienda.gfitness.com.ar%2Fshop%2Fproduct%2Fe3056-prensa-45-fusion-line-1800&tbnid=8sF1UbfgkFGhIM&vet=12ahUKEwieuLGulJv7AhX8tJUCHfrUCzsQMygBegUIARDmAQ..i&docid=6_ZkBfbLbFQUbM&w=1024&h=1024&q=prensa%2045&client=opera-gx&ved=2ahUKEwieuLGulJv7AhX8tJUCHfrUCzsQMygBegUIARDmAQ",
+		"stock": "1",
+		"price": "100000",
+		"timestamp": "November 7th 2022, 12:45:46 am",
+		"id": "05af7d32-6de2-4c2f-a5af-37e2d09bdd77",
+		"code": "d046a54c-15ab-4912-9c1e-18fcf425cdc3"
 	}
 ]
