@@ -11,7 +11,7 @@ const socket = io();
                      <p>Precio: ${element.price}</p>
                      <img src=${element.thumbail}  >
                      </div>`
-     })
+     }).join("")
 
      document.getElementById("historialContainer").innerHTML=html
  }
@@ -51,7 +51,7 @@ const socket = io();
             <p class="msg"> ${element.Msg}</p>
             </div>
             `
-        })
+        }).join(" ")
 
         document.querySelector(".chat").innerHTML=html
     }

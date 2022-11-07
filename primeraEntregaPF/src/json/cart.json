@@ -1,0 +1,19 @@
+[
+	{
+		"products": [
+			{
+				"amount": "5",
+				"id": "11332d46-6384-4319-8090-0bb2ac5de7c3",
+				"name": "Mancuerna",
+				"price": "3000",
+				"description": "Pesa de 15kg",
+				"stock": "10",
+				"image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ftienda.gfitness.com.ar%2Fshop%2Fproduct%2F100413-10-mancuerna-hex-engomada-10kg-por-unidad-2251&psig=AOvVaw2sSeBjpzHW9teMalEwOqeX&ust=1666223726313000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCPCV7J396voCFQAAAAAdAAAAABAF",
+				"code": "0ca4d02b-7518-4965-9edc-6d47b74add47",
+				"timestamp": "November 7th 2022, 12:10:18 am"
+			}
+		],
+		"id": "24ffa74b-d683-4c51-8ae1-75a6882b4d8c",
+		"timestamp": "November 7th 2022, 12:08:09 am"
+	}
+]
