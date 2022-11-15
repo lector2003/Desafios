@@ -30,7 +30,7 @@ app.set("views", rutaViews)
 
 
 
-
+    
 
 //iniciar server de Secket.io
 initWs(server)
