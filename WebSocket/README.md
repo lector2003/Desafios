@@ -11,3 +11,4 @@ Detalles de la navegacion:
 Detalles generales:
 Al agregar un producto se mostrara en pantalla sin necesidad que se refresque la pagina, y tampoco usar el ".redirect"(ya que eso refrescaria la pagina).
 Mas abajo se encuentra el centro de mensajes donde si o si se necesita ingresar el correo para conversar. Los mensajes se guardaran en un json donde perduraran ahi. 
+

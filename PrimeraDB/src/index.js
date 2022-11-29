@@ -7,3 +7,5 @@ const PORT = 8080
 server.listen(PORT, ()=>{
     console.log(`Escuchando en el puerto ${PORT}`)
 })
+
+insertMany([{nombre:"Pablo",edad:25},{nombre:"Juan",edad:22},{nombre:"Lucia",edad:25},{nombre:"Juan",edad:29},{nombre:"Fede",edad:35}])

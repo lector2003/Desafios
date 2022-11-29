@@ -13,3 +13,4 @@ Method DELETE: Elimina un producto por su id, tambien usar postman
 Detalles generales:
 Al agregar un producto se guarda en la base de datos, pero no aparece en pantalla a no ser que se refresque la pantalla, lo mismo pasa con los mensajes.
 Otra cosa con los mensajes esque no pude usar moment para ponerle la fecha, ya que con ningun tipo de dato de sql me lo permitia.
+
