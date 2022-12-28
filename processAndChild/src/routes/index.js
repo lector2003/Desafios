@@ -75,12 +75,22 @@ mainRoute.get("/info",(req,res)=>{
     })
 })
 
+//ruta para fork
+const scripPath = path.resolve(__dirname,"../num/calcu.js")
 //ruta no bloqueante
 mainRoute.get("/calculo",(req,res)=>{
 
-    const {cant}= req.query
+    let {cant}= req.query
 
-    const scripPath = path.resolve(__dirname,"../num/calcu.js")
+     if(!cant){
+       cant = 10000000
+}
+
+    
     const computo = fork(scripPath)
-    computo.send("start")
+    computo.send(cant)
+
+    computo.on("message",(obj)=>{
+        res.json({result:obj})
+    })
 })
