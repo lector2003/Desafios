@@ -4,34 +4,10 @@ import minimist from "minimist"
 import os from "os"
 import cluster from "cluster"
 import compression from "compression"
-//import  logger  from "./loggs"
+import  logger  from "./logger.js"
 
 
-//loggs
-import winston,{format} from "winston";
-const {colorize,timestamp,combine,printf}=format
-const confWinston = {
-  transports: [
-    new winston.transports.Console({ level: "info" }),
-    new winston.transports.File({
-      level: "error",
-      filename: "./logs.error.log",
-    }),
-    new winston.transports.File({
-        level: "warn",
-        filename: "./logs.warn.log",
-      }),
-  ], 
-  format:combine(
-    colorize(),
-    timestamp({
-        format:"MMM-DD-YYYY HH:mm:ss",
-    }),
-    printf((info)=>`${info.level}||${[info.timestamp]}||${info.message}`)
-  )   
-};
 
-const logger = winston.createLogger(confWinston);
 
 
 const app = express()
@@ -45,13 +21,12 @@ const numCpus = os.cpus.length
 const modCluster = arg.cluster
 
 //loggs warning
-// app.use((req,res,next)=>{
-//     if( res.status(404)){
-//         logger.warn(`${req.url} no existe`);
-       
-//     }return next()
-    
-// })
+
+
+
+
+
+
 
 if(modCluster &&cluster.isPrimary){
     for (let i = 0; i < numCpus; i++) {
@@ -107,6 +82,18 @@ if(modCluster &&cluster.isPrimary){
             info
         })
     })
+
+
+    app.use("*",(req,res)=>{
+      const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+
+      logger.warn(`No se encuentra ${fullUrl}`)
+      res.status(404).send(
+       {
+         err:"Pagina no encontrada"
+       }
+      )
+   })
     
       app.listen(PORT, () =>
         logger.info(
