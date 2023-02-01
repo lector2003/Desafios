@@ -2,6 +2,9 @@
 import passport from "passport";
 import { Strategy as StrategyLocal } from "passport-local";
 
+//importar funcion para crear carrito
+import { createCart } from "../controllers/cart";
+
 //impotar model de usarios
 import modelUsers from "../models/users";
 
@@ -17,7 +20,7 @@ const optionsStrategy = {
 
 
 //crear funcion para registrar usuarios
-const signup = async(req,email,password,name,age,phoneNumber,done)=>{
+const signup = async(req,email,password,done)=>{
     try {
         //verificar si el usuario ya esta registrado
         const userEmail = await modelUsers.findOne({email})
@@ -25,18 +28,21 @@ const signup = async(req,email,password,name,age,phoneNumber,done)=>{
         if(userEmail){
             return done(null,false,{msg:"Usuario ya registrado"})
         }else{
-            //moldear usuario
-            phoneNumber =54
-            const user = modelUsers({email,password,name,age,...phoneNumber})
+            //moldear usuario y crear carrito
+            phoneNumber=549
+            const cart = await createCart()
+            logger.info(cart)
+            const {name,age,phoneNumber}=req.body
+            const user = modelUsers({email,password,name,age,...phoneNumber,cart})
 
             //encriptar password
-            user.password = await user.encrypPassword(password)
+            user.password = await user.encryptPassword(password)
 
             //guardar usuario en la base de datos
             await modelUsers.create(user)
 
             //devolver usuario 
-            done(null,user)
+            return done(null,user)
         }
 
 
@@ -51,16 +57,19 @@ const login = async(req,email,password,done)=>{
         //verificar que el email este registrado
         const user = await modelUsers.findOne({email})
 
+
+
         if(!user){
-            done(null,false,{msg:"Email no registrado"})
+           return done(null,false,{msg:"Email no registrado"})
         }else{
             //verificar password 
             const match = await user.comparePassword(password)
 
             if(!match){
-                done(null,false,{msg:"Contraseña incorrecta"})
+              return  done(null,false,{msg:"Contraseña incorrecta"})
             }else{
-                done(null,user)
+                
+              return  done(null,user)
             }
         }
 
@@ -83,7 +92,7 @@ passport.serializeUser((user,done)=>{
 passport.deserializeUser(async(userId,done)=>{ 
     try {
         logger.info("se ejecuta deserialize")
-       const user = modelUsers.findById(userId) 
+       const user =await modelUsers.findById(userId) 
        done(null,user)
     } catch (error) {
         logger.error(error)

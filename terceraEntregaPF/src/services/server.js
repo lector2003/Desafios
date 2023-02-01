@@ -5,7 +5,7 @@ import session from "express-session"
 import path from "path"
 
 //importar las opcciones de session
-import {storeOpcion} from "./session"
+import {StoreOpcion} from "./session"
 
 //importar funciones de login y signup
 import { loginFuc, signupFuc } from "./auth"
@@ -21,7 +21,7 @@ app.use(express.json())
 app.use(urlencoded({extended:true}))
 
 //configuracion de las sesiones
-app.use(session(storeOpcion))
+app.use(session(StoreOpcion))
 app.use(passport.initialize())
 app.use(passport.session())
 

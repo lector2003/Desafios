@@ -10,13 +10,20 @@
   <body class="body">
  
     <form method="post" action="/api/login">
+      <label for="email">Email</label>
         <input type="text" id="email" name="email" />
+        <label for="password">password</label>
         <input type="text" id="password" name="password" />
     
         <button type="submit">
             iniciar sesion
         </button>
     </form>
+
+    <form method="get" action="/api/inicio">
+      <button type="submit">volver al inicio</button>
+    </form>
+ 
  
    
   </body>

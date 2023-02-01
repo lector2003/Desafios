@@ -1,0 +1,74 @@
+[31merror[39m||Jan-30-2023 20:22:42||user.encrypPassword is not a function
+[31merror[39m||Jan-30-2023 20:24:19||done is not a function
+[31merror[39m||Jan-30-2023 20:26:57||Cannot set headers after they are sent to the client
+[31merror[39m||Jan-30-2023 20:27:46||done is not a function
+[31merror[39m||Jan-30-2023 20:36:59||Cannot set headers after they are sent to the client
+[31merror[39m||Jan-30-2023 20:38:46||Cannot set headers after they are sent to the client
+[31merror[39m||Jan-30-2023 20:41:13||Cannot set headers after they are sent to the client
+[31merror[39m||Jan-30-2023 20:49:26||Cannot set headers after they are sent to the client
+[31merror[39m||Jan-30-2023 20:50:35||Cannot read properties of undefined (reading 'password')
+[31merror[39m||Jan-30-2023 20:52:14||Cannot read properties of undefined (reading 'password')
+[31merror[39m||Jan-30-2023 20:52:28||Cannot read properties of undefined (reading 'password')
+[31merror[39m||Jan-30-2023 20:52:41||Cannot read properties of undefined (reading 'password')
+[31merror[39m||Jan-30-2023 20:56:03||Cannot read properties of undefined (reading 'password')
+[31merror[39m||Jan-30-2023 20:56:52||Cannot read properties of undefined (reading 'password')
+[31merror[39m||Jan-30-2023 20:57:11||Cannot read properties of undefined (reading 'password')
+[31merror[39m||Jan-30-2023 21:00:32||Cannot read properties of undefined (reading 'password')
+[31merror[39m||Jan-31-2023 15:56:25||Cannot read properties of undefined (reading 'redirect')
+[31merror[39m||Jan-31-2023 15:56:25||No se creo el carrito
+[31merror[39m||Jan-31-2023 15:57:33||Cannot read properties of undefined (reading 'status')
+[31merror[39m||Jan-31-2023 15:57:33||No se creo el carrito
+[31merror[39m||Jan-31-2023 16:33:41||Cannot read properties of undefined (reading 'length')
+[31merror[39m||Jan-31-2023 16:33:45||Cannot read properties of undefined (reading 'length')
+[31merror[39m||Jan-31-2023 16:34:10||Cannot read properties of undefined (reading 'lenght')
+[31merror[39m||Jan-31-2023 16:34:26||Cannot read properties of undefined (reading 'lenght')
+[31merror[39m||Jan-31-2023 16:35:08||Cannot read properties of undefined (reading 'length')
+[31merror[39m||Jan-31-2023 16:36:25||Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+[31merror[39m||Jan-31-2023 16:37:28||Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+[31merror[39m||Jan-31-2023 16:40:50||Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+[31merror[39m||Jan-31-2023 16:42:00||Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+[31merror[39m||Jan-31-2023 16:45:45||Cast to ObjectId failed for value "style.css" (type string) at path "_id" for model "carts"
+[31merror[39m||Jan-31-2023 17:06:47||Cannot read properties of undefined (reading 'json')
+[31merror[39m||Jan-31-2023 17:06:47||No se creo el carrito
+[31merror[39m||Jan-31-2023 17:10:40||Cannot read properties of undefined (reading 'json')
+[31merror[39m||Jan-31-2023 17:10:40||No se creo el carrito
+[31merror[39m||Jan-31-2023 17:10:52||Cannot read properties of undefined (reading 'json')
+[31merror[39m||Jan-31-2023 17:10:52||No se creo el carrito
+[31merror[39m||Jan-31-2023 17:14:45||Cannot read properties of undefined (reading 'render')
+[31merror[39m||Jan-31-2023 17:14:45||No se creo el carrito
+[31merror[39m||Jan-31-2023 19:45:58||Cannot read properties of undefined (reading 'length')
+[31merror[39m||Jan-31-2023 19:47:28||Cannot read properties of undefined (reading 'length')
+[31merror[39m||Jan-31-2023 19:48:22||Cannot read properties of undefined (reading 'length')
+[31merror[39m||Jan-31-2023 19:50:07||Cannot read properties of undefined (reading 'name')
+[31merror[39m||Jan-31-2023 19:50:34||Cannot read properties of undefined (reading 'name')
+[31merror[39m||Jan-31-2023 19:54:33||Parameter "filter" to find() must be an object, got 63d99a9a280acd8e0e2d26b4
+[31merror[39m||Jan-31-2023 20:53:24||E11000 duplicate key error collection: test.users index: phoneNumber_1 dup key: { phoneNumber: 32232 }
+[31merror[39m||Jan-31-2023 21:00:52||req is not defined
+[31merror[39m||Jan-31-2023 21:00:52||No se envio
+[31merror[39m||Jan-31-2023 21:34:11||Cannot convert object to primitive value
+[31merror[39m||Feb-01-2023 18:53:35||A text message body or media urls must be specified.
+[31merror[39m||Feb-01-2023 18:53:35||No se mando
+[31merror[39m||Feb-01-2023 18:56:45||A text message body or media urls must be specified.
+[31merror[39m||Feb-01-2023 18:56:45||No se mando
+[31merror[39m||Feb-01-2023 18:57:50||The 'From' number +1415523886 is not a valid phone number, shortcode, or alphanumeric sender ID.
+[31merror[39m||Feb-01-2023 18:57:50||No se mando
+[31merror[39m||Feb-01-2023 18:59:42||The 'From' number +1415523886 is not a valid phone number, shortcode, or alphanumeric sender ID.
+[31merror[39m||Feb-01-2023 18:59:42||No se mando
+[31merror[39m||Feb-01-2023 20:01:17||The concatenated message body exceeds the 1600 character limit.
+[31merror[39m||Feb-01-2023 20:01:17||No se mando

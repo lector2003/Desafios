@@ -16,6 +16,6 @@ export const StoreOpcion={
     resave:false,
     saveUninitialized:true,
     cookie:{
-        maxAge:180*1000
+        maxAge:180*10000000000000
     }
 }

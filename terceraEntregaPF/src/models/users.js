@@ -15,7 +15,8 @@ const SchemaUsers = new mongoose.Schema(
         password:{type:String,require:true},
         name:{type:String, require:true},
         age:{type:Number,require:true},
-        phoneNumber:{type:Number,require:true,unique:true}
+        phoneNumber:{type:Number,require:true,unique:true},
+        cart:{type:Object,require :true}
     },
     {
         timestamps:true,versionKey:false
@@ -35,7 +36,12 @@ SchemaUsers.methods.encryptPassword=async(password)=>{
 
 //metodo para comparar password encriptada
 SchemaUsers.methods.comparePassword = async function(password){
-    return await bcrypt.compare(password.this.password)
+    try {
+        return await bcrypt.compare(password, this.password)
+    } catch (error) {
+        logger.error(error)
+    }
+    
 }
 
 //crear modelo de usuarios

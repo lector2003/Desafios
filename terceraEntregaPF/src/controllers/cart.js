@@ -5,18 +5,26 @@ import modelCart from "../models/cart";
 //importar loggs
 import logger from "../services/loggers";
 
+//envio de email de los productos
+import { sendEmailProducts } from "./email";
+//envio de wsp de los productos
+import { sendWsp } from "./wsp";
+
 
 //crear carrito
-export const createCart = async(req,res)=>{
+export const createCart = async()=>{
     try {
         const newCart = {
             products:[]
         }
 
         //guardar carrito en la base de datos
-        await modelCart.create(newCart)
+        const cart = await modelCart(newCart)
+        await modelCart.create(cart)
+        logger.info("carrito creado")
+        return cart
 
-        res.json({msg:"Carrito creado"})
+      
     } catch (error) {
         logger.error(error)
         logger.error("No se creo el carrito")
@@ -50,7 +58,7 @@ export const getAllCartProducts = async(req,res)=>{
         //traer id de req.params
         const {id}=req.params
 
-        const cart = modelCart.findById(id)
+        const cart =await modelCart.findById(id)
 
 
         //validacion
@@ -60,9 +68,9 @@ export const getAllCartProducts = async(req,res)=>{
 
         //productos dentro del carrito
         const productsCart = cart.products
-        res.json({
-           productsCart
-        })
+
+        const Cart = req.user.cart
+        res.render("cart",{productsCart,Cart})
     } catch (error) {
         logger.error(error)
     }
@@ -74,16 +82,18 @@ export const saveProductsCart = async(req,res)=>{
         const {id}=req.params
 
         //traer producto ingresado por el cliente
-        const {id_product}=req.body
+        const id_product=req.params.id_product
 
         //buscar producto en la base de datos
         const product = await modelProducts.findById(id_product)
+
+       
 
         //traer carrito
         const cart =await modelCart.findById(id)
 
         if(!cart){
-            return res.status(404).json({msg:"No hay carrito"})
+            return res.status(404).json({msg:"No se encontro el carrito"})
         }
 
         //agregar producto al array del carrito
@@ -99,6 +109,7 @@ export const saveProductsCart = async(req,res)=>{
     }
 }
 
+//borrar producto por id
 export const deletePorductCart=async(req,res)=>{
     try {
         //traer id del carrito
@@ -135,9 +146,47 @@ export const deletePorductCart=async(req,res)=>{
           await modelCart.findByIdAndUpdate(id,cart),{new:true}
 
           //respuesta del servidor
-          res.send({
-            msg:`Producto con el id ${id_prod} eliminado del carrito con id ${id}`
-          })
+          res.redirect(`/api/cart/${cart._id}`)
+
+    } catch (error) {
+        logger.error(error)
+    }
+}
+
+//mandar orden de compra
+export const buyProducts = async(req,res)=>{
+    try {
+        //buscar carrito segun su id
+        const {id}= req.params
+        const cart = await modelCart.findById(id)
+
+        //validacion
+        if(!cart){
+            return res.status(404).json({msg:"Carrito no encontrado"})
+        }
+       
+        function miToStringGenerico() {
+            return JSON.stringify(this);
+        }
+
+        cart.products.toString=miToStringGenerico
+        //envio de productos por email
+        //usuario registrado
+        const user = req.user
+      await sendEmailProducts(cart.products,user.name,user.email)
+
+      //convertir productos en string
+      const stringCart = JSON.stringify(cart.products)
+      await sendWsp(stringCart)
+
+      //borrar productos dentro del array
+      cart.products.splice(0,cart.products.length)
+        
+      //modificar base de datos
+      await modelCart.findByIdAndUpdate(id,cart)
+
+        res.redirect("/api/products")
+
     } catch (error) {
         logger.error(error)
     }

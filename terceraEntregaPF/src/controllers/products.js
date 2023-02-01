@@ -12,17 +12,16 @@ export const getAll = async(req,res)=>{
     try {
         //traer productos de la base de datos
         const products = await modelProducts.find()
+        const user=req.user
+        
 
-
-        res.json({
-            products
-        })
-
+res.render("products",{products,user})
     } catch (error) {
         logger.error(error)
     }
 }
 
+//mostrar producto por id
 export const getAllById = async(req,res)=>{
     try {
   
@@ -40,7 +39,7 @@ export const getAllById = async(req,res)=>{
     }
 }
 
-
+//borrar producto segun su id
 export const deleteById = async(req,res)=>{
     try {
         //sacar id de req.params
@@ -55,10 +54,11 @@ export const deleteById = async(req,res)=>{
     }
 }
 
+//guardar producto a labase de datos
 export const save= async(req,res)=>{
     try {
         //traer los parametros del body
-        const {name,description,code,price,image,stock}=req.body
+        const {name,description,price,image,stock}=req.body
 
           //crear producto
           const product={
@@ -86,6 +86,7 @@ export const save= async(req,res)=>{
     }
 }
 
+//modificar producto
 export const update=async(req,res)=>{
     try {
         //traer id del producto
@@ -104,3 +105,5 @@ export const update=async(req,res)=>{
         logger.error(error)
     }
 }
+
+//

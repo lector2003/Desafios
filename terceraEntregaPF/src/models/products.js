@@ -15,6 +15,7 @@ const SchemaProducts = new mongoose.Schema(
     stock:{type:Number,require:true},
     price:{type:Number,require:true},
     
+    
 },
 {
     timestamps:true,versionKey:false
