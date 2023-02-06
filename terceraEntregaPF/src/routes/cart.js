@@ -15,7 +15,7 @@ export const cartRoute = Router()
 cartRoute.get("/:id",isLogged,getAllCartProducts)
 
 //guardar productos en el carrito
-cartRoute.post("/:id/:id_product",isLogged,checkBody,saveProductsCart)
+cartRoute.post("/:id/:id_product",isLogged,saveProductsCart)
 
 //comprar productos
 cartRoute.post("/:id",isLogged,buyProducts)

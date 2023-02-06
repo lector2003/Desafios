@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="historialContainer">
+        <% if (products.length ==0) { %>
+        <h1>No hay productos</h1>
+        <% } else{%>
+        
+          <% products.forEach(product=>{%>
+             <class class="historial">
+              <p>Nombre: <%= product.name %> </p>
+              <p>Precio: <%=product.price  %> </p>
+             <img src=<%= product.image %> style="width: 100px;"> 
+             <form method="post" action="/api/cart/<%= user.cart._id %>/<%= product._id %>  ">
+              <button>Agregr al carrito</button>
+             </form>
+             </div>
+               
+            
+          <%}) %>
+          
+        <%} %>
+      
+      <form method="post" action="/api/logout"> 
+        <button> Cerrar sesion</button>
+      </form>
+      <form method="get" action="/api/cart/<%= user.cart._id %> "> 
+        <button> Ir al carrito</button>
+      </form>
+      </div>
+</body>
+</html>

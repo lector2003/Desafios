@@ -11,7 +11,7 @@ import modelUsers from "../models/users";
 //importar loggs
 import logger from "./loggers";
 
-//congif strategy
+//congif strategy 
 const optionsStrategy = {
     usernameField:"email",
     passwordField:"password",
