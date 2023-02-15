@@ -36,7 +36,7 @@ Method Delete...
 End Points de cart.js
 Method Post...
 "/cart" Crea un carrito nuevo y devuelve su id. curl --location --request POST 'http://localhost:8080/api/cart'
-"/cart/:id/products" Agrega al carrito,segun su id, un producto del json de productos, segun el id del producto, y la cantidad de items necesaria. Ademas se fija la fecha en la que se agrego al carrito. curl --location --request POST 'http://localhost:8080/api/cart/638550bf3fb857fbd995c3aa/products' \
+"/cart/:id/:idProd" Agrega al carrito,segun su id, un producto del json de productos, segun el id del producto, y la cantidad de items necesaria. Ademas se fija la fecha en la que se agrego al carrito. curl --location --request POST 'http://localhost:8080/api/cart/638550bf3fb857fbd995c3aa/products' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'idProduct=6384c1c10df52e942727dc4f'
 

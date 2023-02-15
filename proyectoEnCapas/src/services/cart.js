@@ -1,5 +1,5 @@
 //importar funciones
-import { createCart, deletePorductCart,deleteCart,saveProductsCart,getAllCartProducts } from "../persistence/persistence";
+import { createCart, deletePorductCart,deleteCart,saveProductsCart,getAllCartProducts } from "../persistence/daos/daos.js";
 
 
 export async function cartCreate(){

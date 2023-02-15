@@ -1,5 +1,5 @@
 //importar funciones
-import { save, deleteById, getAll, getAllById } from "../persistence/persistence";
+import { save, deleteById, getAll, getAllById } from "../persistence/daos/daos.js";
 
 export async function saveProduct(prod){
     const product = await save(prod)

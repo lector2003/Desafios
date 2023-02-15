@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 //importar modelo de productos
 import modelProducts from "./schemas/products.js";
 
+
+
 //mostrar todos los productos
 export const getAll = async () => {
   try {
