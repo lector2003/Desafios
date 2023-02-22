@@ -84,7 +84,7 @@ export const deletePorductCart = async (idCart, idProd) => {
     //borrae producto
     cart.products.splice(ind, 1);
 
-    await modelCart.findByIdAndUpdate(id, cart), { new: true };
+    await modelCart.findByIdAndUpdate(idCart, cart), { new: true };
 
     return cart;
   } catch (error) {
